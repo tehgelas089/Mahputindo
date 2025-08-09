@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Freelancer - Start Bootstrap Theme</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <style>
+          :root {
+  --coilSize: 14px;
+  --delayCount: 40ms;
+  --scaleMe: 1;
+
+  --scaleFlip: 1;
+  --posFlip: 0;
+}
+body,
+.seaLevel {
+  font-family: "Open Sans", sans-serif;
+  background-color: lightblue;
+  overflow: hidden;
+}
+.fish {
+  position: absolute;
+  top: -35%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(
+    calc(var(--coilSize) * 4) calc(var(--coilSize) / 3) 5px rgba(0, 0, 0, 0.3)
+  );
+}
+.fish .koiCoil {
+  position: absolute;
+  width: var(--coilSize);
+  height: var(--coilSize);
+  background-color: orangered;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  margin-left: calc(var(--coilSize) / -2);
+  margin-top: calc(var(--coilSize) / -2);
+  transform: scale(var(--scaleMe), var(--scaleMe));
+  filter: contrast(200%);
+  offset-path: path(
+    "M11.7692 229.5C14.552 200.052 7.51901 171.858 -42.8757 170.644C-105.869 169.128 -131.294 76.612 -101.695 51.5872C-72.0955 26.5625 -24.6607 -50.7867 70.5883 51.5872C165.837 153.961 27.7073 131.211 33.0199 183.157C38.3326 235.102 90.3211 195.669 139.274 223.727C188.226 251.785 207.959 299.56 139.274 316.243C70.5883 332.926 41.3685 398.9 81.9726 419.754C122.577 440.608 222 478.524 222 419.754C222 372.738 222 242.432 222 183.157C219.091 129.948 175.78 30.8091 25.8099 59.9288C-161.652 96.3284 -30.3529 119.837 25.8099 141.07C81.9726 162.303 171.529 204.769 126.751 260.506C81.9726 316.243 101.326 362.501 139.274 373.496C177.222 384.492 170.012 464.495 70.5883 462.979C-28.835 461.462 -42.8757 393.015 -42.8757 373.496C-42.8757 238.288 11.7692 293 11.7692 240.506C11.7692 208.05 11.7692 237.336 11.7692 229.5Z"
+  );
+  animation: fishAnim 20000ms linear infinite;
+  box-shadow: calc(var(--coilSize) / -2) calc(var(--coilSize) / -10) 0 white
+    inset;
+}
+
+.fish:nth-of-type(2) {
+  transform-origin: top center;
+  transform: scale(-1, 1);
+  filter: drop-shadow(
+    calc(var(--coilSize) * -4) calc(var(--coilSize) / 3) 5px rgba(0, 0, 0, 0.3)
+  );
+}
+.fish:nth-of-type(2) .koiCoil {
+  background-color: white;
+  box-shadow: calc(var(--coilSize) / -2) calc(var(--coilSize) / -10) 0 orangered
+    inset;
+}
+.fish .koiCoil:nth-of-type(15),
+.fish .koiCoil:nth-of-type(14) {
+  background-color: orangered;
+}
+.fish:nth-of-type(2) .koiCoil:nth-of-type(15),
+.fish:nth-of-type(2) .koiCoil:nth-of-type(14) {
+  background-color: white;
+}
+.fish .koiCoil:nth-of-type(15)::after {
+  content: ":";
+  position: absolute;
+  color: black;
+  font-weight: 800;
+  text-align: center;
+  line-height: 60%;
+  font-size: calc(var(--coilSize) * 1.2);
+}
+.fish .koiCoil:nth-of-type(1)::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  top: 25%;
+  left: -100%;
+  border-radius: var(--coilSize);
+  background-color: white;
+  /*box-shadow: calc(var(--coilSize) / -10) calc(var(--coilSize) / -4) calc(var(--coilSize) / 3) rgba(0,0,0,.3) inset;*/
+  transform-origin: center right;
+  animation: backFlip 200ms ease-in-out alternate infinite;
+}
+.fish .koiCoil:nth-of-type(14) {
+  --scaleMe: 1.2;
+  animation-delay: calc(var(--delayCount) * 1);
+}
+.fish .koiCoil:nth-of-type(13) {
+  --scaleMe: 1.35;
+  animation-delay: calc(var(--delayCount) * 2);
+}
+.fish .koiCoil:nth-of-type(12) {
+  --scaleMe: 1.55;
+  animation-delay: calc(var(--delayCount) * 3);
+}
+.fish .koiCoil:nth-of-type(11) {
+  --scaleMe: 1.75;
+  animation-delay: calc(var(--delayCount) * 4);
+}
+.fish .koiCoil:nth-of-type(10) {
+  --scaleMe: 1.9;
+  animation-delay: calc(var(--delayCount) * 5);
+}
+.fish .koiCoil:nth-of-type(9) {
+  --scaleMe: 2;
+  animation-delay: calc(var(--delayCount) * 6);
+}
+.fish .koiCoil:nth-of-type(8) {
+  --scaleMe: 2;
+  animation-delay: calc(var(--delayCount) * 7);
+}
+.fish .koiCoil:nth-of-type(7) {
+  --scaleMe: 2;
+  animation-delay: calc(var(--delayCount) * 8);
+}
+.fish .koiCoil:nth-of-type(6) {
+  --scaleMe: 1.9;
+  animation-delay: calc(var(--delayCount) * 9);
+}
+.fish .koiCoil:nth-of-type(5) {
+  --scaleMe: 1.75;
+  animation-delay: calc(var(--delayCount) * 10);
+}
+.fish .koiCoil:nth-of-type(4) {
+  --scaleMe: 1.55;
+  animation-delay: calc(var(--delayCount) * 11);
+}
+.fish .koiCoil:nth-of-type(3) {
+  --scaleMe: 1.35;
+  animation-delay: calc(var(--delayCount) * 12);
+}
+.fish .koiCoil:nth-of-type(2) {
+  --scaleMe: 1.2;
+  animation-delay: calc(var(--delayCount) * 13);
+}
+.fish .koiCoil:nth-of-type(1) {
+  animation-delay: calc(var(--delayCount) * 14);
+}
+.fish .koiCoil:nth-of-type(12)::before,
+.fish .koiCoil:nth-of-type(12)::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  top: -10%;
+  left: -100%;
+  border-radius: var(--coilSize);
+  background-color: white;
+  transform-origin: center right;
+  animation: sideFlip 500ms ease-in-out alternate infinite;
+}
+.fish .koiCoil:nth-of-type(12)::after {
+  --scaleFlip: -1;
+  --posFlip: calc(var(--coilSize) * -1);
+}
+.seaLevel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.4;
+}
+@keyframes fishAnim {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+@keyframes backFlip {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+@keyframes sideFlip {
+  0% {
+    transform: scale(1, var(--scaleFlip)) translateY(var(--posFlip))rotate(80deg);
+  }
+  100% {
+    transform: scale(1, var(--scaleFlip)) translateY(var(--posFlip))rotate(20deg);
+  }
+}
+
+            .bg-primary {
+                background-color: #CB0404 !important;
+            }
+            /* .bg-secondary {
+                background-color: #CB0404 !important;
+            } */
+            .btn-primary {
+                background-color: #CB0404 !important;
+                border-color: #CB0404 !important;
+            }
+            .divider-custom .divider-custom-line {
+                background-color: #CB0404 !important;
+            }
+            .divider-custom .divider-custom-icon {
+                color: #CB0404 !important;
+            }
+            .navbar-dark .navbar-toggler {
+                background-color: #CB0404 !important;
+            }
+    html {
+  overflow-y: scroll;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+.master{
+  width: 50px;
+  height: 50px;
+}
+
+        </style>
+    </head>
+  
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top">17 𝓐𝓰𝓾𝓼𝓽𝓾𝓼 1945</a>
+                 <img class="master" src="assets/img/portfolio/logo-removebg-preview.png" alt="..." />
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#post">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center" id="post">
+            <div class="container d-flex align-items-center flex-column">
+              <div class="fish">
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+</div>
+<div class="fish">
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+  <div class="koiCoil"></div>
+</div>
+<div class="seaLevel"></div>
+                <!-- Masthead Avatar Image-->
+                <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
+                <!-- Masthead Heading-->
+                <!-- <h1 class="masthead-heading text-uppercase mb-0">Start Bootstrap</h1> -->
+                <h1 class="animate__animated animate__backInDown">HUT RI Ke 80</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Masthead Subheading-->
+                <!-- <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p> -->
+                   <h1 class="animate__animated animate__backInUp">DiGrahayu Indonesia</h1>
+            </div>
+        </header>
+        <!-- Portfolio Section-->
+        <section class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <!-- <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2> -->
+                   <h1 class="animate__animated animate__bounceInRight" style="text-align: center;">Pahlawan Indenesia</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Grid Items-->
+                <div class="row justify-content-center">
+                    <!-- Portfolio Item 1-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/s.jpg" alt="..." />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 2-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/h.png" alt="..." />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 3-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/b.png" alt="..." />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 4-->
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/y.png" alt="..." />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 5-->
+                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/j.png" alt="..." />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 6-->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/k.png" alt="..." />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section-->
+        <section class="page-section bg-primary text-white mb-0" id="about">
+            <div class="container">
+                <!-- About Section Heading-->
+                <!-- <h2 class="page-section-heading text-center text-uppercase text-white">Sejarah</h2> -->
+                <h1 class="animate__animated animate__bounceInLeft" style="text-align: center;">Sejarah Singkat Kemerdekaan</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- About Section Content-->
+                <div class="row">
+                    <div class=" ms-auto"><p class="lead">Indonesia merdeka pada 17 Agustus 1945 setelah lebih dari tiga abad dijajah Belanda dan tiga tahun diduduki Jepang. Kekalahan Jepang pada Perang Dunia II membuka peluang bagi para tokoh nasional, termasuk Soekarno dan Mohammad Hatta, untuk memproklamasikan kemerdekaan di Jakarta. Meskipun sudah memproklamasikan kemerdekaan, Indonesia masih harus berjuang melawan upaya Belanda yang ingin kembali berkuasa, hingga akhirnya kedaulatan diakui secara penuh pada 27 Desember 1949.
+                    </p></div>
+                    <!-- <div class="col-lg-4 me-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div>
+                </div> -->
+                <!-- About Section Button-->
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
+                        <i class="fas fa-download me-2"></i>
+                        Free Download!
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section-->
+        <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 490" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><style>
+          .path-0{
+            animation:pathAnim-0 4s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+          }
+          @keyframes pathAnim-0{
+            0%{
+              d: path("M 0,500 L 0,125 C 84.8133971291866,118.53110047846889 169.6267942583732,112.06220095693779 270,117 C 370.3732057416268,121.93779904306221 486.3062200956938,138.2822966507177 596,142 C 705.6937799043062,145.7177033492823 809.1483253588518,136.8086124401914 904,147 C 998.8516746411482,157.1913875598086 1085.1004784688994,186.48325358851673 1173,186 C 1260.8995215311006,185.51674641148327 1350.4497607655503,155.25837320574163 1440,125 L 1440,500 L 0,500 Z");
+            }
+            25%{
+              d: path("M 0,500 L 0,125 C 101.03349282296651,135.92822966507177 202.06698564593302,146.85645933014354 301,145 C 399.933014354067,143.14354066985646 496.76555023923447,128.5023923444976 573,130 C 649.2344497607655,131.4976076555024 704.8708133971293,149.13397129186603 810,136 C 915.1291866028707,122.86602870813397 1069.751196172249,78.96172248803828 1183,72 C 1296.248803827751,65.03827751196172 1368.1244019138755,95.01913875598086 1440,125 L 1440,500 L 0,500 Z");
+            }
+            50%{
+              d: path("M 0,500 L 0,125 C 108.87081339712918,106.89473684210526 217.74162679425837,88.78947368421053 300,80 C 382.25837320574163,71.21052631578947 437.9043062200957,71.73684210526314 524,91 C 610.0956937799043,110.26315789473686 726.6411483253589,148.26315789473685 841,150 C 955.3588516746411,151.73684210526315 1067.531100478469,117.21052631578948 1167,107 C 1266.468899521531,96.78947368421052 1353.2344497607655,110.89473684210526 1440,125 L 1440,500 L 0,500 Z");
+            }
+            75%{
+              d: path("M 0,500 L 0,125 C 83.64593301435409,139.08612440191388 167.29186602870817,153.17224880382773 270,168 C 372.70813397129183,182.82775119617227 494.47846889952154,198.3971291866029 591,185 C 687.5215311004785,171.6028708133971 758.7942583732058,129.23923444976077 857,124 C 955.2057416267942,118.76076555023923 1080.3444976076555,150.64593301435406 1182,157 C 1283.6555023923445,163.35406698564594 1361.8277511961724,144.17703349282297 1440,125 L 1440,500 L 0,500 Z");
+            }
+            100%{
+              d: path("M 0,500 L 0,125 C 84.8133971291866,118.53110047846889 169.6267942583732,112.06220095693779 270,117 C 370.3732057416268,121.93779904306221 486.3062200956938,138.2822966507177 596,142 C 705.6937799043062,145.7177033492823 809.1483253588518,136.8086124401914 904,147 C 998.8516746411482,157.1913875598086 1085.1004784688994,186.48325358851673 1173,186 C 1260.8995215311006,185.51674641148327 1350.4497607655503,155.25837320574163 1440,125 L 1440,500 L 0,500 Z");
+            }
+          }</style><defs><linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="5%" stop-color="#cb0404"></stop><stop offset="95%" stop-color="#fbf5de"></stop></linearGradient></defs><path d="M 0,500 L 0,125 C 84.8133971291866,118.53110047846889 169.6267942583732,112.06220095693779 270,117 C 370.3732057416268,121.93779904306221 486.3062200956938,138.2822966507177 596,142 C 705.6937799043062,145.7177033492823 809.1483253588518,136.8086124401914 904,147 C 998.8516746411482,157.1913875598086 1085.1004784688994,186.48325358851673 1173,186 C 1260.8995215311006,185.51674641148327 1350.4497607655503,155.25837320574163 1440,125 L 1440,500 L 0,500 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="0.53" class="transition-all duration-300 ease-in-out delay-150 path-0"></path><style>
+          .path-1{
+            animation:pathAnim-1 4s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+          }
+          @keyframes pathAnim-1{
+            0%{
+              d: path("M 0,500 L 0,291 C 107.79904306220095,297.32535885167465 215.5980861244019,303.65071770334924 312,304 C 408.4019138755981,304.34928229665076 493.4066985645934,298.72248803827756 595,304 C 696.5933014354066,309.27751196172244 814.7751196172248,325.4593301435407 910,313 C 1005.2248803827752,300.5406698564593 1077.4928229665072,259.4401913875598 1162,251 C 1246.5071770334928,242.5598086124402 1343.2535885167463,266.7799043062201 1440,291 L 1440,500 L 0,500 Z");
+            }
+            25%{
+              d: path("M 0,500 L 0,291 C 120.74641148325358,257.32535885167465 241.49282296650716,223.65071770334927 324,236 C 406.50717703349284,248.34928229665073 450.77511961722485,306.7224880382775 541,321 C 631.2248803827752,335.2775119617225 767.4066985645933,305.45933014354074 873,302 C 978.5933014354067,298.54066985645926 1053.598086124402,321.44019138755976 1143,324 C 1232.401913875598,326.55980861244024 1336.200956937799,308.77990430622015 1440,291 L 1440,500 L 0,500 Z");
+            }
+            50%{
+              d: path("M 0,500 L 0,291 C 95.85645933014354,294.46411483253587 191.71291866028707,297.92822966507174 283,302 C 374.2870813397129,306.07177033492826 461.0047846889953,310.7511961722488 549,307 C 636.9952153110047,303.2488038277512 726.2679425837321,291.06698564593296 841,299 C 955.7320574162679,306.93301435406704 1095.9234449760766,334.98086124401914 1200,337 C 1304.0765550239234,339.01913875598086 1372.0382775119617,315.00956937799043 1440,291 L 1440,500 L 0,500 Z");
+            }
+            75%{
+              d: path("M 0,500 L 0,291 C 118.82296650717703,272.1004784688995 237.64593301435406,253.20095693779905 338,236 C 438.35406698564594,218.79904306220095 520.2392344497607,203.2966507177033 597,234 C 673.7607655502393,264.7033492822967 745.3971291866029,341.61244019138763 835,353 C 924.6028708133971,364.38755980861237 1032.1722488038279,310.2535885167464 1136,289 C 1239.8277511961721,267.7464114832536 1339.9138755980862,279.3732057416268 1440,291 L 1440,500 L 0,500 Z");
+            }
+            100%{
+              d: path("M 0,500 L 0,291 C 107.79904306220095,297.32535885167465 215.5980861244019,303.65071770334924 312,304 C 408.4019138755981,304.34928229665076 493.4066985645934,298.72248803827756 595,304 C 696.5933014354066,309.27751196172244 814.7751196172248,325.4593301435407 910,313 C 1005.2248803827752,300.5406698564593 1077.4928229665072,259.4401913875598 1162,251 C 1246.5071770334928,242.5598086124402 1343.2535885167463,266.7799043062201 1440,291 L 1440,500 L 0,500 Z");
+            }
+          }</style><defs><linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="5%" stop-color="#cb0404"></stop><stop offset="95%" stop-color="#fbf5de"></stop></linearGradient></defs><path d="M 0,500 L 0,291 C 107.79904306220095,297.32535885167465 215.5980861244019,303.65071770334924 312,304 C 408.4019138755981,304.34928229665076 493.4066985645934,298.72248803827756 595,304 C 696.5933014354066,309.27751196172244 814.7751196172248,325.4593301435407 910,313 C 1005.2248803827752,300.5406698564593 1077.4928229665072,259.4401913875598 1162,251 C 1246.5071770334928,242.5598086124402 1343.2535885167463,266.7799043062201 1440,291 L 1440,500 L 0,500 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-1"></path></svg>
+        <!-- Footer-->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Location</h4>
+                        <p class="lead mb-0">
+                           17 Agustus 1945
+                            <br />
+                            Indonesia
+                        </p>
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Around the Web</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+                    </div>
+                    <!-- Footer About Text-->
+                    <div class="col-lg-4">
+                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <p class="lead mb-0">
+                            "Kemerdekaan sejati adalah ketika rakyat hidup sejahtera, adil, dan damai."
+                            <br>
+                            "Merdeka bukan hanya bebas dari penjajah, tetapi juga bebas untuk bermimpi dan mewujudkannya."
+                            <a href="http://startbootstrap.com">Start Bootstrap</a>
+                            .
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Copyright Section-->
+        <div class="copyright py-4 text-center text-white">
+            <div class="container"><small>Copyright &copy; Your Website 2023</small></div>
+        </div>
+        <!-- Portfolio Modals-->
+        <!-- Portfolio Modal 1-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Ir.Soekarno</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/s.jpg" alt="..." />
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">Ir. Soekarno, bernama lengkap Kusno Sosrodihardjo, lahir di Surabaya pada 6 Juni 1901 dan wafat di Jakarta pada 21 Juni 1970. Ia adalah Presiden pertama Republik Indonesia (1945–1967) dan dikenal sebagai Proklamator Kemerdekaan bersama Mohammad Hatta. Soekarno berperan besar dalam mempersatukan bangsa dan memimpin perjuangan melawan penjajahan, baik melalui diplomasi maupun pergerakan politik. Ia juga dikenal sebagai orator ulung dan penggagas Pancasila sebagai dasar negara.</p>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 2-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">M.Hatta</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/h.png" alt="..." />
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">Mohammad Hatta lahir di Bukittinggi pada 12 Agustus 1902 dan wafat di Jakarta pada 14 Maret 1980. Ia adalah Wakil Presiden pertama Republik Indonesia sekaligus Proklamator kemerdekaan bersama Soekarno, berperan penting dalam diplomasi kemerdekaan, serta dikenal sebagai Bapak Koperasi Indonesia.</p>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 3-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Bung Tomo</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/b.png" alt="..." />
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">Bung Tomo, bernama asli Sutomo, lahir di Surabaya pada 3 Oktober 1920 dan wafat di Padang Arafah pada 7 Oktober 1981. Ia memimpin rakyat Surabaya dalam Pertempuran 10 November 1945 melawan pasukan Sekutu dan NICA, dengan pidato-pidato yang membakar semangat juang.</p>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 4-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">M.Yamin</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/y.png" alt="..." />
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">Muhammad Yamin lahir di Sawahlunto pada 23 Agustus 1903 dan wafat di Jakarta pada 17 Oktober 1962. Ia adalah tokoh pergerakan nasional, sastrawan, dan politikus yang turut merumuskan dasar negara Pancasila dan Piagam Jakarta dalam sidang BPUPKI.</p>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 5-->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Jendral Sudirman</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/j.png" alt="..." />
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">Jenderal Sudirman lahir di Purbalingga pada 24 Januari 1916 dan wafat di Magelang pada 29 Januari 1950. Sebagai Panglima Besar TNI pertama, ia memimpin perang gerilya melawan Belanda meskipun sedang sakit parah, menjadi simbol keberanian dan pengorbanan.</p>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 6-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Kartini</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/k.png" alt="..." />
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">Raden Adjeng Kartini lahir di Jepara pada 21 April 1879 dan wafat pada 17 September 1904. Ia dikenal sebagai pelopor kebangkitan perempuan pribumi dan pejuang emansipasi yang memperjuangkan pendidikan bagi perempuan, gagasannya menginspirasi perjuangan kemerdekaan melalui kesetaraan hak</p>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
+semua yang berbackround hijau ganti sama #CB0404 ini
